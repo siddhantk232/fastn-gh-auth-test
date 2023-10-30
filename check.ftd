@@ -1,0 +1,11 @@
+-- import: fastn/processors as pr
+
+-- record status:
+boolean is-login:
+
+-- status auth:
+$processor$: pr.user-details
+
+-- ftd.text: Logged in
+text if { auth.is-login == false }: User not logged in
+

@@ -1,0 +1,8 @@
+-- ftd.text: Login (We need a ftd.button)
+padding.px: 20
+$on-click$: login()
+
+
+-- void login():
+
+ftd.navigate("http://localhost:8000/-/auth/login/" + "?next=http://localhost:8000/check")
