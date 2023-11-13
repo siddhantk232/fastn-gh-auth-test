@@ -2,15 +2,12 @@
 
 ### Requires:
 
-- FASTN_GITHUB_CLIENT_SECRET
-- FASTN_GITHUB_CLIENT_ID
+- Copy [`.env.example`](./.env.example) into `.env` and fill in the required values.
+- [Source build of `fastn` from this PR (or main if it is merged)](https://github.com/fastn-stack/fastn/pull/1485)
 
-The `fastn` doesn't recognise these tho?
 
-## Bug
+### Run
 
-- ftd.navigate("http://localhost:8000/-/auth/login/" + "?next=http://localhost:8000/check")
-   `ftd.navigate()` works differently in brave and firefox
-    Works as expected in firefox. Redirects to url with correct query params.
-    In brave, redirects to `localhost/check`. Needs investigation
-
+```sh
+fastn serve --edition=2023
+```
