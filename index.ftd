@@ -1,8 +1,44 @@
--- ftd.text: Login (We need a ftd.button)
-padding.px: 20
-$on-click$: login()
+-- import: fastn/processors as pr
 
+;; UI
 
--- void login():
+-- ftd.column:
 
-ftd.navigate("http://localhost:8000/-/auth/login/" + "?next=http://localhost:8000/check")
+-- ftd.text: [Login](/-/auth/login/?provider=github&next=/)
+text if { auth.is-login == true }: $greet(name=$auth.user.name)
+
+-- ftd.row:
+if: { auth.is-login == true }
+-- ftd.text: User id:
+margin-right.px: 4
+
+-- ftd.integer: $auth.user.id
+-- end: ftd.row
+
+-- ftd.text: Click on the above link to login
+text if { auth.is-login == true}: [Logout](/-/auth/logout/)
+
+-- end: ftd.column
+
+;; DATA
+
+-- status auth:
+$processor$: pr.user-details
+
+;; TYPES
+
+-- record status:
+boolean is-login:
+optional user-details user:
+
+-- record user-details:
+string name:
+string login:
+integer id:
+
+;; UTILS
+
+-- string greet(name):
+string name:
+
+"Hello, " + name + "!"
