@@ -15,7 +15,7 @@ margin-right.px: 4
 -- ftd.integer: $auth.user.id
 -- end: ftd.row
 
--- ftd.text: Click on the above link to login
+-- ftd.text: Click on the above link to logout
 text if { auth.is-login == true}: [Logout](/-/auth/logout/)
 
 -- end: ftd.column
