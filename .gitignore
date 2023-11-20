@@ -4,3 +4,4 @@
 
 # build of fastn from master (with .env file loading support)
 fastn
+.direnv/

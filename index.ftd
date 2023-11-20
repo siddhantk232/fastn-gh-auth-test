@@ -5,10 +5,10 @@
 -- ftd.column:
 
 -- ftd.text: [Login](/-/auth/login/?provider=github&next=/)
-text if { auth.is-login == true }: $greet(name=$auth.user.name)
+text if { auth.is-logged-in == true }: $greet(name=$auth.user.name)
 
 -- ftd.row:
-if: { auth.is-login == true }
+if: { auth.is-logged-in == true }
 -- ftd.text: User id:
 margin-right.px: 4
 
@@ -16,7 +16,7 @@ margin-right.px: 4
 -- end: ftd.row
 
 -- ftd.text: Click on the above link to logout
-text if { auth.is-login == true}: [Logout](/-/auth/logout/)
+text if { auth.is-logged-in == true}: [Logout](/-/auth/logout/)
 
 -- end: ftd.column
 
@@ -28,7 +28,7 @@ $processor$: pr.user-details
 ;; TYPES
 
 -- record status:
-boolean is-login:
+boolean is-logged-in:
 optional user-details user:
 
 -- record user-details:
